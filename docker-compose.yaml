@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  app:
+    image: node:12.16.3
+    ports: 
+      - 3100:3000
+    volumes:
+      #change this to your cloned directory.
+      - /mnt/user/devel/gan-scrambler:/app
+    working_dir: /app
+    command: bash -c "npm --version && npm install react-scripts@4.0.0 && echo SKIP_PREFLIGHT_CHECK=true > .env && npx browserslist@latest --update-db && HTTPS=true npm start"
+    
+    
